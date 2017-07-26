@@ -1,1 +1,51 @@
-sign-up works!
+  <div class="login-background-welcome-message-panel">
+    <span>{{formTitle}}</span>
+  </div>
+
+  <div class="login-popup">
+    <table class="login-fields-wrapper" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;" align="left">
+                    <div class="control-group">
+                        <div>
+
+                          <form
+                            [formGroup]="form"
+                            (ngSubmit)="onSubmit(form.value)">
+
+                            <ul>
+
+                              <ss2-field [group]="form" [attributes]="accountFieldAttr"></ss2-field>
+
+                              <ss2-field [group]="form" [attributes]="firstNameFieldAttr"></ss2-field>
+
+                              <ss2-field [group]="form" [attributes]="lastNameFieldAttr"></ss2-field>
+
+                              <ss2-field [group]="form" [attributes]="userNameFieldAttr"></ss2-field>
+
+                              <ss2-field [group]="form" [attributes]="passwordFieldAttr"></ss2-field>
+
+                              <ss2-field [group]="form" [attributes]="confirmPasswordFieldAttr"></ss2-field>
+
+                              <li>
+                                <span id="mismatch" *ngIf="form.errors?.mismatchedFields">Passwords do not match</span>
+                              </li>
+
+                              <li>
+                                <div class="actions">
+                                  <button id="submit">Sign Up</button>
+                                </div>
+                              </li>
+
+                            </ul>
+
+                          </form>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
