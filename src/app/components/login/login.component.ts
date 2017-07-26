@@ -10,12 +10,12 @@ import { Credentials } from '../../shared/custom-types/classes/credentials';
 @Component({
   moduleId: module.id,
   selector: 'ss2-login',
-  templateUrl: 'login.component.html',
+  templateUrl: 'login.aura.component.html',
   styleUrls: ['login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  private formTitle: string = 'login';
+  private formTitle: string = 'Welcome to PulseCloud';
 
   private credentials = new Credentials();
 

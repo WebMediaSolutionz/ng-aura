@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'ss2-footer',
-  templateUrl: 'footer.component.html',
+  templateUrl: 'footer.aura.component.html',
   styleUrls: ['footer.component.scss']
 })
 export class FooterComponent implements OnInit {

@@ -6,7 +6,7 @@ import { ConfigService } from './shared/services/config.service';
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: 'app.component.html',
+  templateUrl: 'app.aura.component.html',
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
                           localStorage.setItem('product', this.configs.product);
                           localStorage.setItem('account', this.configs.account);
                           localStorage.setItem('errorDuration', this.configs.errorDuration);
+                          localStorage.setItem('theme', this.configs.theme);
                         },
                         (err) => {
                           console.info(err);

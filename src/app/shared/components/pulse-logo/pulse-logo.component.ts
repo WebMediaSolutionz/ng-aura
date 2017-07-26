@@ -5,7 +5,7 @@ import { MdIconRegistry } from '@angular/material';
 @Component({
   moduleId: module.id,
   selector: 'ss2-pulse-logo',
-  templateUrl: 'pulse-logo.component.html',
+  templateUrl: 'pulse-logo.aura.component.html',
   styleUrls: ['pulse-logo.component.scss']
 })
 export class PulseLogoComponent {

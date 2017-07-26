@@ -1,0 +1,23 @@
+<div class="login-background-welcome-message-panel">
+    <span>{{formTitle}}</span>
+</div>
+
+<div class="login-popup">
+    <table class="login-fields-wrapper" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;" align="left">
+                    <div class="control-group">
+                        <div>
+                            <input [(ngModel)]="credentials.account" class="login-text-box" placeholder="Account" type="text">
+                            <input [(ngModel)]="credentials.username" class="login-text-box" placeholder="Username" type="text">
+                            <input [(ngModel)]="credentials.password" class="login-text-box" placeholder="Password" type="password">
+
+                            <button type="submit" class="login-signin-button" id="login" (click)="login()">Sign In</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

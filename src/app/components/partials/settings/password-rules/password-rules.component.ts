@@ -14,7 +14,7 @@ import { User } from '../../../../shared/custom-types/classes/user';
 @Component({
   moduleId: module.id,
   selector: 'ss2-password-rules',
-  templateUrl: 'password-rules.component.html',
+  templateUrl: 'password-rules.aura.component.html',
   styleUrls: ['password-rules.component.scss']
 })
 export class PasswordRulesComponent implements OnInit {

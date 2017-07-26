@@ -1,0 +1,12 @@
+<!-- top navigation -->
+<ss2-nav></ss2-nav>
+
+<!-- page main content -->
+<div>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<!-- page footer -->
+<ss2-footer *ngIf="loaded" [company]="configs.company"></ss2-footer>

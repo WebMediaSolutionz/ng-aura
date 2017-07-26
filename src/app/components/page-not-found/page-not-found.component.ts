@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'ss2-page-not-found',
-  templateUrl: 'page-not-found.component.html',
+  templateUrl: 'page-not-found.aura.component.html',
   styleUrls: ['page-not-found.component.scss']
 })
 export class PageNotFoundComponent {

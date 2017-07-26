@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import 'hammerjs';
-import { PulseComponentModule } from '@pulse/angular-components/src/lib/module';
 
 // Routing
 import { routing } from './app.routing';
@@ -79,9 +77,7 @@ import { PulseComponentLibComponent } from
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    MaterialModule,
     BrowserAnimationsModule,
-    PulseComponentModule,
     routing
   ],
   providers: [

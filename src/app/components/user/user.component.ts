@@ -11,7 +11,7 @@ import { User } from '../../shared/custom-types/classes/user';
 @Component({
   moduleId: module.id,
   selector: 'ss2-user',
-  templateUrl: 'user.component.html',
+  templateUrl: 'user.aura.component.html',
   styleUrls: ['user.component.scss']
 })
 export class UserComponent implements OnInit {

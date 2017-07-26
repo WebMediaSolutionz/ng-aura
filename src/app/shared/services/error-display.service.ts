@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MdSnackBar } from '@angular/material';
 
 @Injectable()
 export class ErrorDisplayService {
 
-  constructor(private sb: MdSnackBar) {}
+  constructor() {}
 
   public display(error: string = 'some error'): void {
-    this.sb.open(error, 'close', {duration: 2000});
+    console.error(error);
   }
 
   public getErrorCount(form: FormGroup, strictValidation: Boolean = false): number {
