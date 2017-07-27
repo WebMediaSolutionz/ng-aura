@@ -1,1 +1,75 @@
-user works!
+<ng-template [ngIf]="isLoading">
+  Please wait ...
+</ng-template>
+
+<ng-template [ngIf]="!isLoading">
+
+  <div *ngIf="admin" class="left_align">
+
+    <button id="toggle" (click)="toggleEditMode()">Edit Mode</button>
+
+  </div>
+
+  <div [ngSwitch]="editMode">
+
+    <div *ngSwitchCase="true">
+
+      <ul>
+
+        <li>
+            <input [(ngModel)]="user.account" mdInput placeholder="Account" disabled>
+        </li>
+
+        <li>
+            <input [(ngModel)]="user.firstname" mdInput id="user_firstname" placeholder="First Name">
+        </li>
+
+        <li>
+            <input [(ngModel)]="user.lastname" mdInput id="user_lastname" placeholder="Last Name">
+        </li>
+
+        <li>
+          <div class="actions">
+            <button id="save" color="primary" (click)="post()">Save Changes</button>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="left_align" *ngSwitchDefault>
+
+      <table class="full profile_info">
+
+        <tr>
+
+          <td>Account:</td>
+
+          <td>{{user.account}}</td>
+
+        </tr>
+
+        <tr>
+
+          <td>First Name:</td>
+
+          <td>{{user.firstname}}</td>
+
+        </tr>
+
+        <tr>
+
+          <td>Last Name:</td>
+
+          <td>{{user.lastname}}</td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</ng-template>

@@ -7,7 +7,7 @@ export class ErrorDisplayService {
   constructor() {}
 
   public display(error: string = 'some error'): void {
-    console.error(error);
+    console.info(error);
   }
 
   public getErrorCount(form: FormGroup, strictValidation: Boolean = false): number {

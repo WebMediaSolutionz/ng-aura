@@ -1,9 +1,8 @@
 <div class="noprint main-header">
-    <div *ngIf="!authService.isAuthenticated">
-        <hr>
-    </div>
-    <div class="noPrint" id="patientNavigationBarApplicationHeader" *ngIf="authService.isAuthenticated">
-        <div class="first-header">
+    <div
+        class="noPrint"
+        id="patientNavigationBarApplicationHeader">
+        <div *ngIf="authService.isAuthenticated" class="first-header">
             <div class="first-header--logo"> <a class="gwt-Anchor" id="logoAnchor" title="Home"></a> </div>
             <div class="first-header--user-roles">
                 <div><a class="gwt-Anchor" id="username" title="Change User, Role or Settings">Nicholas Reeves, Administrator</a>                    <span class="dropdown-arrow"></span>
@@ -25,8 +24,8 @@
         </div>
         <div class="second-header">
             <div class="second-header--logo"> <a class="gwt-Anchor" title="Home"></a> </div>
-            <div class="second-header--menu"> <a class="settled-button margin-top-20px" title="Menu"><span class="fa fa-navicon font-size-20px"></span></a>                </div>
-            <div class="second-header--search">
+            <div *ngIf="authService.isAuthenticated" class="second-header--menu"> <a class="settled-button margin-top-20px" title="Menu"><span class="fa fa-navicon font-size-20px"></span></a>                </div>
+            <div *ngIf="authService.isAuthenticated" class="second-header--search">
                 <div class="patient-search">
                     <a class="logo" routerLink="/dashboard">
                         <!-- <ss2-pulse-logo></ss2-pulse-logo> -->
@@ -42,14 +41,13 @@
                         <span>Welcome {{authService.name | myCapitalize}}</span>
                     </button>
 
-                    <button [class.active]="configService.activeLink === 'login'" routerLink="/login" *ngIf="!authService.isAuthenticated">
+                    <button [class.active]="configService.activeLink === 'login'" routerLink="/login" [hidden]="true">
                         <span><i class="fa fa-sign-in" aria-hidden="true"></i> Login</span>
                     </button>
 
-                    <button [class.active]="configService.activeLink === 'signup'" routerLink="/signup" *ngIf="!authService.isAuthenticated">
+                    <button [class.active]="configService.activeLink === 'signup'" routerLink="/signup" [hidden]="true">
                         <span><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</span>
                     </button>
-
 
                     <!-- <button  id="dropdown" [mdMenuTriggerFor]="menu" *ngIf="authService.isAuthenticated"> -->
                     <!-- <span><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span> -->
@@ -57,22 +55,21 @@
 
                     <!-- <md-menu class="dropdown" #menu="mdMenu"> -->
 
-                    <button [class.active]="configService.activeLink === 'user'" routerLink="/user">
+                    <button [class.active]="configService.activeLink === 'user'" routerLink="/user" *ngIf="authService.isAuthenticated">
                         <span><i class="fa fa-user" aria-hidden="true"></i> Profile</span>
-                        </button>
+                    </button>
 
-                    <button [class.active]="configService.activeLink === 'settings'" routerLink="/settings">
+                    <button [class.active]="configService.activeLink === 'settings'" routerLink="/settings" *ngIf="authService.isAuthenticated">
                         <span><i class="fa fa-cog" aria-hidden="true"></i> Settings</span>
-                        </button>
+                    </button>
 
-                    <button *ngIf="configService.accessLevel === 'admin'" [class.active]="configService.activeLink === 'pulse-component-lib'"
-                        routerLink="/pulse-component-lib">
+                    <button [class.active]="configService.activeLink === 'pulse-component-lib'" routerLink="/pulse-component-lib" *ngIf="authService.isAuthenticated">
                         <span><i class="fa fa-cog" aria-hidden="true"></i> pulse component library</span>
-                        </button>
+                    </button>
 
-                    <button id="logout" (click)="authService.logout()">
+                    <button id="logout" (click)="authService.logout()" *ngIf="authService.isAuthenticated">
                         <span><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</span>
-                        </button>
+                    </button>
                     <!-- <div>
                         <a class="gwt-Anchor" title="Search">
                             <div class="settled-button magnifyglass"> <span class="fa fa-search font-size-20px"></span> </div>
@@ -93,11 +90,11 @@
                     </div> -->
                 </div>
             </div>
-            <div class="second-header--unfinished-items"> <a class="settled-button margin-top-20px" id="unfinishedItemMenuID" title="Unfinished Items"><span class="fa fa-bookmark font-size-20px"></span> <div class="second-header--unfinished-items-count" style="display: inline-block;"> <div class="unfinished-items-count-background"></div> <span class="unfinished-items-count-number">20</span> </div> Unfinished Items</a>                </div>
-            <div class="second-header--announcements"> <a class="settled-button margin-top-20px" title="Announcements &amp; Reminders"><span class="fa fa-sticky-note font-size-20px"></span> Notices</a>                </div>
+            <div *ngIf="authService.isAuthenticated" class="second-header--unfinished-items"> <a class="settled-button margin-top-20px" id="unfinishedItemMenuID" title="Unfinished Items"><span class="fa fa-bookmark font-size-20px"></span> <div class="second-header--unfinished-items-count" style="display: inline-block;"> <div class="unfinished-items-count-background"></div> <span class="unfinished-items-count-number">20</span> </div> Unfinished Items</a>                </div>
+            <div *ngIf="authService.isAuthenticated" class="second-header--announcements"> <a class="settled-button margin-top-20px" title="Announcements &amp; Reminders"><span class="fa fa-sticky-note font-size-20px"></span> Notices</a>                </div>
             <div class="clearfix"></div>
         </div>
-        <div class="homepage-notes-wrapper" id="reminders">
+        <div *ngIf="authService.isAuthenticated" class="homepage-notes-wrapper" id="reminders">
             <div class="reminders-wrapper">
                 <div>
                     <div class="dashboard-announcement-wrapper">
@@ -126,5 +123,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
