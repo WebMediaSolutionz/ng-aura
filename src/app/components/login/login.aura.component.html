@@ -9,11 +9,19 @@
                 <td style="vertical-align: top;" align="left">
                     <div class="control-group">
                         <div>
-                            <input [(ngModel)]="credentials.account" class="login-text-box" placeholder="Account" type="text">
-                            <input [(ngModel)]="credentials.username" class="login-text-box" placeholder="Username" type="text">
-                            <input [(ngModel)]="credentials.password" class="login-text-box" placeholder="Password" type="password">
+                            <form
+                                [formGroup]="loginForm"
+                                (ngSubmit)="login(login.value)">
+                                <input class="login-text-box" placeholder="Account" type="text" formControlName="account" (focus)="resetForm()">
+                                <input class="login-text-box" placeholder="Username" type="text" formControlName="username" (focus)="resetForm()">
+                                <input class="login-text-box" placeholder="Password" type="password" formControlName="password" (focus)="resetForm()">
 
-                            <button type="submit" class="login-signin-button" id="login" (click)="login()">Sign In</button>
+                                <button type="submit" class="login-signin-button" id="login">Sign In</button>
+                            </form>
+
+                            <div *ngIf="formSubmitted && loginForm.controls.username.invalid && loginForm.controls.password.invalid && loginForm.controls.username.touched && loginForm.controls.password.touched" class="validation-popup">
+                                Your authentication failed. Please verify that your account, user id and password are correct.
+                            </div>
                         </div>
                     </div>
                 </td>
