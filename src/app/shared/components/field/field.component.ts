@@ -7,7 +7,7 @@ import { Attributes } from '../../custom-types/classes/attributes';
 @Component({
   moduleId: module.id,
   selector: 'ss2-field',
-  templateUrl: 'field.component.html',
+  templateUrl: 'field.aura.component.html',
   styleUrls: ['field.component.scss']
 })
 export class FieldComponent {

@@ -1,0 +1,15 @@
+<li>
+
+  <div [formGroup]="group">
+
+    <input
+      [type]="attributes.type"
+      [name]="attributes.name"
+      [id]="attributes.name"
+      [placeholder]="attributes.placeholder | myCapitalize"
+      [value]="attributes.value"
+      [formControlName]="attributes.name">
+
+  </div>
+
+</li>

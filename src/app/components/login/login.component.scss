@@ -1,0 +1,17 @@
+input {
+
+    &.ng-invalid.ng-pristine.ng-touched,
+    &.ng-invalid.ng-dirty.ng-touched {
+        border: 1px solid red;
+
+        &:focus {
+            border: 1px solid #ccc;
+        }
+    }
+}
+
+.validation-popup {
+    overflow: visible;
+    position: absolute;
+    top: 180px;
+}

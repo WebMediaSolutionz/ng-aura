@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'ss2-dashboard',
-  templateUrl: 'dashboard.component.html',
+  templateUrl: 'dashboard.aura.component.html',
   styleUrls: ['dashboard.component.scss']
 })
 export class DashboardComponent {

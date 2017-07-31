@@ -9,7 +9,7 @@ import { ConfigService } from '../../../shared/services/config.service';
 @Component({
   moduleId: module.id,
   selector: 'ss2-nav',
-  templateUrl: 'nav.component.html',
+  templateUrl: 'nav.aura.component.html',
   styleUrls: ['nav.component.scss']
 })
 export class NavComponent {

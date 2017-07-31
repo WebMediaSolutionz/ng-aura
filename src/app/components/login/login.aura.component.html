@@ -1,0 +1,31 @@
+<div class="login-background-welcome-message-panel">
+    <span>{{formTitle}}</span>
+</div>
+
+<div class="login-popup">
+    <table class="login-fields-wrapper" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td style="vertical-align: top;" align="left">
+                    <div class="control-group">
+                        <div>
+                            <form
+                                [formGroup]="loginForm"
+                                (ngSubmit)="login(login.value)">
+                                <input class="login-text-box" placeholder="Account" type="text" formControlName="account" (focus)="resetForm()">
+                                <input class="login-text-box" placeholder="Username" type="text" formControlName="username" (focus)="resetForm()">
+                                <input class="login-text-box" placeholder="Password" type="password" formControlName="password" (focus)="resetForm()">
+
+                                <button type="submit" class="login-signin-button" id="login">Sign In</button>
+                            </form>
+
+                            <div *ngIf="formSubmitted && loginForm.controls.username.invalid && loginForm.controls.password.invalid && loginForm.controls.username.touched && loginForm.controls.password.touched" class="validation-popup">
+                                Your authentication failed. Please verify that your account, user id and password are correct.
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

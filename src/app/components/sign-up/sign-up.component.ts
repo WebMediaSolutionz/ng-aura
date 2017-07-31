@@ -13,7 +13,7 @@ import { Attributes } from '../../shared/custom-types/classes/attributes';
 @Component({
   moduleId: module.id,
   selector: 'ss2-sign-up',
-  templateUrl: 'sign-up.component.html',
+  templateUrl: 'sign-up.aura.component.html',
   styleUrls: ['sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
