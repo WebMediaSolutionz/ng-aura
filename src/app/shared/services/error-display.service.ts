@@ -4,8 +4,6 @@ import { FormGroup } from '@angular/forms';
 @Injectable()
 export class ErrorDisplayService {
 
-  constructor() {}
-
   public display(error: string = 'some error'): void {
     console.info(error);
   }
