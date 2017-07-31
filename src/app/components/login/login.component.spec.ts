@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 // Components
@@ -9,6 +10,8 @@ import { LoginComponent } from './login.component';
 import { AuthService } from '../../shared/services/auth.service';
 import { AuthServiceStub } from '../../shared/services/auth.service.stub';
 import { RouterStub } from '../../shared/services/router.service.stub';
+import { ErrorDisplayService } from '../../shared/services/error-display.service';
+import { ErrorDisplayServiceStub } from '../../shared/services/error-display.service.stub';
 
 // Classes
 import { Credentials } from '../../shared/custom-types/classes/credentials';
@@ -22,7 +25,9 @@ describe('Login Component', () => {
       declarations: [ LoginComponent ],
       providers: [
         { provide: AuthService, useClass: AuthServiceStub },
-        { provide: Router, useClass: RouterStub }
+        { provide: Router, useClass: RouterStub },
+        FormBuilder,
+        { provide: ErrorDisplayService, useClass: ErrorDisplayServiceStub }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     });
@@ -61,12 +66,29 @@ describe('Login Component', () => {
   });
 
   describe('login()', () => {
-    it('should invoke AuthService.login', () => {
+    it( 'should invoke ErrorDisplayService.display to display ' +
+        'error message when form is invalid', () => {
+      let spy = spyOn(component['errorDisplayService'], 'display');
+
+      fixture.detectChanges();
+      component.login(null);
+
+      expect(component['loginForm'].valid).toBeFalsy();
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should invoke AuthService.login to authenticate user when the form is valid', () => {
       let spy = spyOn(component['authService'], 'login');
 
       fixture.detectChanges();
-      component.login();
 
+      component['loginForm'].controls['account'].setValue('a');
+      component['loginForm'].controls['username'].setValue('a');
+      component['loginForm'].controls['password'].setValue('a');
+
+      component.login(null);
+
+      expect(component['loginForm'].valid).toBeTruthy();
       expect(spy).toHaveBeenCalled();
     });
   });

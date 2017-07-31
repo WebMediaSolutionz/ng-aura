@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
   }
 
   public resetForm(): void {
-    console.info('form not submitted');
     this.formSubmitted = false;
   }
 
@@ -57,7 +56,6 @@ export class LoginComponent implements OnInit {
     this.formSubmitted = true;
 
     if (this.loginForm.valid) {
-      console.info('hide popup');
       this.authService.login(this.loginForm.value);
     } else {
       this.errorDisplayService.display('Some entries are invalid');

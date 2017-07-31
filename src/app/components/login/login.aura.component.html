@@ -1,31 +1,53 @@
 <div class="login-background-welcome-message-panel">
-    <span>{{formTitle}}</span>
+  <span>{{formTitle}}</span>
 </div>
 
 <div class="login-popup">
-    <table class="login-fields-wrapper" cellspacing="0" cellpadding="0">
-        <tbody>
-            <tr>
-                <td style="vertical-align: top;" align="left">
-                    <div class="control-group">
-                        <div>
-                            <form
-                                [formGroup]="loginForm"
-                                (ngSubmit)="login(login.value)">
-                                <input class="login-text-box" placeholder="Account" type="text" formControlName="account" (focus)="resetForm()">
-                                <input class="login-text-box" placeholder="Username" type="text" formControlName="username" (focus)="resetForm()">
-                                <input class="login-text-box" placeholder="Password" type="password" formControlName="password" (focus)="resetForm()">
+  <table class="login-fields-wrapper" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td style="vertical-align: top;" align="left">
+          <div class="control-group">
+            <div>
+              <form
+                [formGroup]="loginForm"
+                (ngSubmit)="login(login.value)">
+                <input
+                  [class.error]="formSubmitted && loginForm.controls.account.invalid"
+                  class="login-text-box"
+                  type="text"
+                  placeholder="Account"
+                  formControlName="account"
+                  (focus)="resetForm()">
 
-                                <button type="submit" class="login-signin-button" id="login">Sign In</button>
-                            </form>
+                <input
+                  [class.error]="formSubmitted && loginForm.controls.username.invalid"
+                  class="login-text-box"
+                  type="text"
+                  placeholder="Username"
+                  formControlName="username"
+                  (focus)="resetForm()">
 
-                            <div *ngIf="formSubmitted && loginForm.controls.username.invalid && loginForm.controls.password.invalid && loginForm.controls.username.touched && loginForm.controls.password.touched" class="validation-popup">
-                                Your authentication failed. Please verify that your account, user id and password are correct.
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                <input
+                  [class.error]="formSubmitted && loginForm.controls.password.invalid"
+                  class="login-text-box"
+                  type="password"
+                  placeholder="Password"
+                  formControlName="password"
+                  (focus)="resetForm()">
+
+                <button id="login" class="login-signin-button" type="submit">Sign In</button>
+              </form>
+
+              <div
+                class="validation-popup"
+                *ngIf="formSubmitted && (loginForm.controls.account.invalid || loginForm.controls.username.invalid || loginForm.controls.password.invalid)">
+                Your authentication failed. Please verify that your account, user id and password are correct.
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

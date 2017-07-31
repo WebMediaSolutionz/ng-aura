@@ -27,20 +27,20 @@ describe('ErrorDisplay Service', () => {
   });
 
   describe(`display()`, () => {
-    it('should invoke MdSnackBar.open to display error message', inject(
+    it('should invoke console.info() to display error message', inject(
       [ErrorDisplayService],
       (service: ErrorDisplayService) => {
-        let spy = spyOn(service['sb'], 'open');
+        let spy = spyOn(console, 'info');
         let errorMsg1 = 'error message';
         let errorMsg2 = 'some error';
 
         service.display(errorMsg1);
 
-        expect(spy).toHaveBeenCalledWith(errorMsg1, 'close', {duration: 2000});
+        expect(spy).toHaveBeenCalledWith(errorMsg1);
 
         service.display();
 
-        expect(spy).toHaveBeenCalledWith(errorMsg2, 'close', {duration: 2000});
+        expect(spy).toHaveBeenCalledWith(errorMsg2);
       }
     ));
   });
