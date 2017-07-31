@@ -12,8 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^4.1.3",
-    "@angular/cdk": "github:angular/cdk-builds",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
